@@ -13,3 +13,5 @@ apt install -y /tmp/litestream.deb /tmp/headscale.deb
 rm /tmp/litestream.deb /tmp/headscale.deb
 
 apt remove -y curl jq && apt autoremove -y
+apt clean
+rm -rf /var/lib/apt/lists/*
