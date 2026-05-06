@@ -1,0 +1,8 @@
+#!/bin/bash
+set -e
+
+echo "Attempting to restore database from GCS..."
+litestream restore -if-db-not-exists -if-replica-exists /var/lib/headscale/db.sqlite
+
+echo "Starting Litestream replication and Headscale..."
+exec litestream replicate -exec "/usr/bin/headscale serve"

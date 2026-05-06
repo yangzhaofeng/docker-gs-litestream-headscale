@@ -1,0 +1,6 @@
+dbs:
+  - path: /var/lib/headscale/db.sqlite
+    replica:
+      type:   gs
+      bucket: {{GS_BUCKET_NAME}}
+      path:   {{GS_DB_PATH}}
