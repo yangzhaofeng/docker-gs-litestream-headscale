@@ -4,7 +4,7 @@ set -e
 echo "Attempting to restore database from GCS..."
 mkdir -p /var/lib/headscale
 touch /var/lib/headscale/db.sqlite
-litestream restore -config /etc/livestream.yaml -if-db-not-exists -if-replica-exists /var/lib/headscale/db.sqlite
+litestream restore -config /etc/litestream.yaml -if-db-not-exists -if-replica-exists /var/lib/headscale/db.sqlite
 
 echo "Starting Litestream replication and Headscale..."
-exec litestream replicate -config /etc/livestream.yaml -exec "/usr/bin/headscale serve"
+exec litestream replicate -config /etc/litestream.yaml -exec "/usr/bin/headscale serve"
