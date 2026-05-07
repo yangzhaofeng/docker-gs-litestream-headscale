@@ -2,6 +2,7 @@
 set -e
 
 echo "Attempting to restore database from GCS..."
+touch /var/lib/headscale/db.sqlite
 litestream restore -if-db-not-exists -if-replica-exists /var/lib/headscale/db.sqlite
 
 echo "Starting Litestream replication and Headscale..."
